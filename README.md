@@ -1,8 +1,8 @@
 # Minika_Kollision
-Arduino-based solution for Minika Ko fashion, tech and art show, "Kollision."<br> 
+<p>Arduino-based solution for Minika Ko fashion, tech and art show, "Kollision."<br> 
 This code was deployed to LilyPad (Arduino) and Flora (Adafruit) controllers<br>
-to produce lighting patterns with attached NeoPixel LED Strands (Adafruit).<br><br>
+to produce lighting patterns with attached NeoPixel LED Strands (Adafruit).</p>
 
-Kollision website: https://www.minikako.com/kollision<br><br>
+<p><strong><a href="https://www.minikako.com/kollision">Kollision website</a></strong></p>
 
-In collaboration with artist Vanessa Sun.
+<p>In collaboration with artist Vanessa Sun.</p>
