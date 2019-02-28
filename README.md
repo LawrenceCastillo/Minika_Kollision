@@ -15,3 +15,12 @@ to produce lighting patterns with attached NeoPixel LED Strands (Adafruit).</p>
 <p>Deploy: LilyPad Arduino, Processor ATmega328P, Port Dev/ttyUSB1<br>
           AdaFruit Flora, Port Dev/ttyACM0 (AdaFruit Flora)<br>
           AdaFruit NeoPixel LED Strand</p>
+
+<p><strong>Test output: ConvergePattern function</strong></p>
+
+<p>This function sets and resets LED lights in two sequences -- in this case, one sequence starting from light 0 and one sequence starting from light 19) -- with the patterns converging to the midpoint of the strand. Additionally, through each successive cycle, the color output is altered to the following: red, orange, pink, magenta, and purple. The color output reverts back to red after reaching the last cycle.
+          
+<p><em>This sequence may be used with multiple LED strands by modifying the number of LEDs on line 27.</em></p>
+
+<p><strong>Video snippet:</strong></p>
+<p><img src="https://github.com/LawrenceCastillo/Minika_Kollision/blob/master/TestOutput/TestOutput_ConvergePattern.gif">
