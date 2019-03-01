@@ -9,16 +9,16 @@
 
 <p><strong>Instructions for running app</strong></p>
 <p>BUILD:<br>
-          Arduino 1.8.6;<br>
+          Arduino IDE 1.8.6;<br>
           Arduino AVR Boards 1.6.22 (LilyPad);<br>
           AdaFruit AVR Boards 1.4.13 (Flora);<br>
           AdaFruit NeoPixel 1.1.8</p>
 <p>DEPLOY:<br> 
-          <em>LilyPad Arduino:</em><br>
-          Processor ATmega328P, Port Dev/ttyUSB1<br>
-          <em>AdaFruit Flora:</em><br>
-          Port Dev/ttyACM0 (AdaFruit Flora)<br>
-          <em>AdaFruit NeoPixel LED Strand</em></p>
+          <strong>LilyPad Arduino:</strong><br>
+          Processor: ATmega328P, Port: Dev/ttyUSB1<br>
+          <strong>AdaFruit Flora:</strong><br>
+          Port: Dev/ttyACM0<br>
+          <strong>AdaFruit NeoPixel LED Strand</strong></p>
 <p>Code works for either board, need not use both.</p>
 
 <p><strong>Test output: ConvergePattern function</strong></p>
