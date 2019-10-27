@@ -35,90 +35,36 @@ void setup()
 
 void loop() 
 {
-    //ConvergePattern();
-    RandomizePattern();
+    TwinklePattern();
 }
 
 /*
-Section: Randomize Pattern
+Section: Twinkle Pattern
 */
 
-// Color setup for randomize pattern. This pattern pallette 
-// only displays: orange yellow white
+// Color setup for twinkle pattern. This pattern pallette
+// only displays: white
 // @post    calls helper function to both set and reset LED output
 // @return  four LED outputs (two on, two off)
-void RandomizePattern()
+void TwinklePattern()
 {
-    int r = 255;  // red valid 0-255
-    int g = 0;    // green valid 0-90: affects white tone/ brightness 
-    int b = 0;    // blue valid 0-100: affects white tone/ brightness
+    int r = 200;  // red valid 0-255
+    int g = 200;    // green valid 0-90: affects white tone/ brightness
+    int b = 200;    // blue valid 0-100: affects white tone/ brightness
     int waitSet = 4;    // sets delay after LED on (ms)
     int waitReset = 1;  // sets delay after LED off (ms)
 
-    // runs 7 times
-    // red is constant, green increases exponentially, blue on/ off 
-    for( int i = 2; i < 129; i *= 2 )
-        { int g_ = 0, b_ = 0;
-        if ( i >= 128 ) { g_ = 61 + g; b_ = 155 + b; }
-        Randomize(strip.Color( r, ( i/2 + 40 + g_ ), b_ ), waitSet ); // LED on 
-        Randomize(strip.Color( 0, 0, 0 ), waitReset ); } // LED off
-}
+    // Turn all LEDs on
+    // white is constant
+    for( int i = 0; i < strip.numPixels(); i++ ) { 
+        strip.setPixelColor(i, r, g, b );
+        strip.show();
+    }
 
-// LEDs will light in a random pattern, simulating the look of brain activity.
-// Strand is divided in half (left/ right brain) and one LED is 
-// set on both sides
-// @param   color ( R, G, B ); values range from 0-255
-// @param   time delay ( ms ); non-negative
-// @pre     valid entry
-// @post    random access of one LED of lower half and one from upper half
-// @return  two LED outputs
-void Randomize( uint32_t color_rgb, uint8_t wait_time ) 
-{ 
-    for( uint16_t i = 0; i < 1; i++ ) 
-        { strip.setPixelColor( random( 0, strip.numPixels()/2 ), color_rgb ); // lower
-        strip.setPixelColor( random ( strip.numPixels()/2, strip.numPixels()), color_rgb ); //upper
-        strip.show(); } // output
-        
-    delay( wait_time * 6 ); // wait before sending back to loop()
-}
-
-/*
-Section: Converge LED Pattern
-*/
-
-// Color setup for converge pattern. This pattern pallette 
-// only displays colors: red orange pink magenta purple
-// @post    calls helper function to both set and reset LED output
-// @return  four LED outputs (two on, two off)
-void ConvergePattern() 
-{
-    int r = 255;  // red valid 0-255
-    int g = 10;   // green valid 0-191: offset
-    int b = 0;    // blue valid 0-128: offset
-    int waitSet = 100;  // sets delay after LED on ( ms )
-    int waitReset = 1;  // sets delay after LED off ( ms )
-
-    // runs 7 times
-    // red is constant, green and blue increase exponentially
-    for( int i = 2; i < 129; i *= 2 )
-        { Converge(strip.Color( r, ( i/2 + g ), i + b), waitSet ); 
-        Converge(strip.Color( 0, 0, 0 ), waitReset ); }
-}
-
-// LEDs will light from both ends towards the middle.
-// Strand is divided in half (left/ right) and one LED is 
-// set on both sides
-// @param   color ( R, G, B ); values range from 0-255
-// @param   time delay ( ms ); non-negative
-// @pre     valid entry
-// @post    access of one LED of lower half and one from upper half
-// @return  14 LED outputs
-void Converge( uint32_t color_rgb, uint8_t wait_time ) 
-{ 
-    for( uint16_t i = 0; i < ( strip.numPixels()/2 ); i++ ) 
-        { strip.setPixelColor( i, color_rgb ); // lower
-        strip.setPixelColor(( strip.numPixels()-1-i ), color_rgb ); // upper
-        strip.show(); delay( wait_time ); }
-        
-    delay( wait_time * 6 ); // wait before sending back to loop()
+    for( int i = 200; i < 256; i++ ) {
+        int pixel = random(0, strip.numPixels());
+        strip.setPixelColor(pixel, i, i, i);
+        strip.show();
+        delay(1000);
+    }
 }
